@@ -119,6 +119,7 @@ func (s *Server) registerHandlers() {
 	s.router.HandleFunc("/configs", s.configReadHandler).Methods("GET")
 	s.router.HandleFunc("/token", s.tokenGenerateHandler).Methods("POST")
 	s.router.HandleFunc("/token/validate", s.tokenValidateHandler).Methods("GET")
+	s.router.HandleFunc("/logtext/{text}", s.logtextHandler).Methods("GET")
 	s.router.HandleFunc("/api/info", s.infoHandler).Methods("GET")
 	s.router.HandleFunc("/api/echo", s.echoHandler)
 	s.router.PathPrefix("/api/echo/").HandlerFunc(s.echoHandler)
